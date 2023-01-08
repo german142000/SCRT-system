@@ -1,2 +1,2 @@
-# SCRT-system - Система сертификации svsp
+# Система сертификации svsp (SCRT-system)
 
