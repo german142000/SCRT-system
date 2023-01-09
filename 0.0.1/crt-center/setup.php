@@ -50,8 +50,7 @@ $flt = fopen($_SERVER['DOCUMENT_ROOT']."/sertificates/.htaccess", 'w');
 fwrite($flt, $httccss);
 fclose($flt);
 
-$APIFILE = '
-<?php
+$APIFILE = '<?php
 header("Access-Control-Allow-Origin: *");
 
 $smNum = rand(999999999, getrandmax());
@@ -68,8 +67,7 @@ $flt = fopen($_SERVER['DOCUMENT_ROOT']."/api/api.php", 'w');
 fwrite($flt, $APIFILE);
 fclose($flt);
 
-$CERTIFICATEFILE = '
-<?php
+$CERTIFICATEFILE = '<?php
 ini_set("display_errors", 0);
 ini_set("display_startup_errors", 0);
 error_reporting(E_ALL);
