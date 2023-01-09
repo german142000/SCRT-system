@@ -64,8 +64,8 @@ SCRT-system - система, позволяющая производить се
 - htdocs
     - cert
         - cert
-            - cert.scrt
-            - .htaccess
+            -- cert.scrt
+            -- .htaccess
         - cert.php
 
 
