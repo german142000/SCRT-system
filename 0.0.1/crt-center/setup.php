@@ -2,6 +2,7 @@
 
 /*
  * setup.php: automatic installer of the certification authority of the svsp certification system
+ * https://github.com/german142000/SCRT-system
  * 
  * Copyright (c) 2023 Fonteyn German
  *
