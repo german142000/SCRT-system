@@ -62,9 +62,9 @@ SCRT-system - система, позволяющая производить се
 конфигурационный файл *.htaccess*, в котором нужно запретить доступ к папке из вне.
 
 - htdocs
-    - cert
-        - cert.php
-        - cert
+    + cert
+        * cert.php
+        * cert
             - cert.scrt
             - .htaccess
 
