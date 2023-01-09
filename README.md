@@ -75,7 +75,7 @@ SCRT-system - система, позволяющая производить се
 
 **Функции библиотеки**
 
-- getSCRTcertificate(callBack, dir)
+`getSCRTcertificate(callBack, dir)`
 
 Получает массив строк сертификата в открытом виде. Всего строк в сертификате 10.
 
