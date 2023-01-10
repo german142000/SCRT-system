@@ -51,6 +51,10 @@ $flt = fopen($_SERVER['DOCUMENT_ROOT']."/sertificates/.htaccess", 'w');
 fwrite($flt, $httccss);
 fclose($flt);
 
+$flt = fopen($_SERVER['DOCUMENT_ROOT']."/key/.htaccess", 'w');
+fwrite($flt, $httccss);
+fclose($flt);
+
 $APIFILE = '<?php
 header("Access-Control-Allow-Origin: *");
 
