@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1);
 
 $scrt_config = array(
 	"version" => "1.0.0",
