@@ -1,5 +1,5 @@
 <?php
-//createCertificate.php?product=photograph&month=1&keeper=185.185.69.85&pass=142000
+//createCertificate.php?product=product&month=1&keeper=127.0.0.1&pass=password
 include("config.php");
 if(isset($_GET['product']) && isset($_GET['month']) && isset($_GET['keeper']) && isset($_GET['pass'])){
 	if($_GET['pass'] != $scrt_config["password"]){
