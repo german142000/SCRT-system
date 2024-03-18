@@ -1,5 +1,5 @@
 <?php
-//getCertificate.php?id=27f00f31290841ca5686fd0f0cc7ba81c15d46dc46070e34d90a12be097fdacf&keeper=185.185.69.85
+//getCertificate.php?id={certId}&keeper=127.0.0.1
 include("config.php");
 if(isset($_GET['id']) && isset($_GET['keeper'])){
 	if(!filter_var($_GET['keeper'], FILTER_VALIDATE_IP)){
