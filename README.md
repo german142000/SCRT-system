@@ -127,8 +127,8 @@ public class Main {
         System.out.println("server trust, enter data");
         Scanner scanner = new Scanner(System.in);
         while(true){
-        	  String input = scanner.nextLine();
-        	  System.out.println(ss.sendData("http://127.0.0.1/test.php", input).data); //Отправка запроса, вывод ответа в консоль
+            String input = scanner.nextLine();
+            System.out.println(ss.sendData("http://127.0.0.1/test.php", input).data); //Отправка запроса, вывод ответа в консоль
         }
         scanner.close();
     }
