@@ -116,6 +116,7 @@ SCRT-system - криптосистема, позволяющая произво�
 - `boolean error` - возвращает `true` если в процессе получения ответа возникает ошибка, иначе `false`;
 - `String data` - если `error` равен `true` - возвращает текст ошибки, иначе - расшифрованный ответ от хоста;
 
+`Main.java`
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -134,6 +135,13 @@ public class Main {
 }
 ```
 
+`test.php`
+```php
+include("scrt-system_v3_host/packs.php");
+$resp = getData();
+$sum = $resp['data']." edited";
+sendData($sum, $resp['session']);
+```
 
 
 
