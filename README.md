@@ -137,10 +137,10 @@ public class Main {
 
 `test.php`
 ```php
-include("scrt-system_v3_host/packs.php");
-$resp = getData();
-$sum = $resp['data']." edited";
-sendData($sum, $resp['session']);
+include("scrt-system_v3_host/packs.php"); //Подключение SCRT-system
+$resp = getData(); //Получение информации
+$sum = $resp['data']." edited"; //Изменение информации
+sendData($sum, $resp['session']); //Отправка
 ```
 
 
