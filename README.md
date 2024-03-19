@@ -93,8 +93,7 @@ SCRT-system - криптосистема, позволяющая произво�
 
 **Java клиенты**
 
-Как указано выше - существует два Java клиента, идентичных по функционалу. Оба клиента зависят от [`JSON Simple`]([https://github.com/mervick/aes-everywhere/tree/master](https://code.google.com/archive/p/json-simple/)) и 
-[`aes-everywhere`](https://github.com/mervick/aes-everywhere/tree/master).
+Как указано выше - существует два Java клиента, идентичных по функционалу. Оба клиента зависят от [`JSON Simple`](https://code.google.com/archive/p/json-simple/) и [`aes-everywhere`](https://github.com/mervick/aes-everywhere/tree/master).
 
 
 
