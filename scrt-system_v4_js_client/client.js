@@ -1,8 +1,8 @@
 var config = {
     scrt_system_version: "1.0.0",
-    scrt_system_host_address: "https://zetrix-server.ru/scrt-system_v3_host",
-    scrt_system_address: "https://zetrix-server.ru/scrt-system_v3",
-    keeper: "185.185.69.85"
+    scrt_system_host_address: "https://localhost/scrt-system_v3_host",
+    scrt_system_address: "https://localhost/scrt-system_v3",
+    keeper: "0.0.0.0"
 };
 
 var dbits;
