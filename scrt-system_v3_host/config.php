@@ -4,7 +4,7 @@ require_once "sdatabase/main.php";
 $scrt_config = array(
 	"version" => "1.0.0",
 	"scrt_directory" => $_SERVER['DOCUMENT_ROOT']."/scrt_host",
-	"password" => "142000",
+	"password" => "password",
 	"db" => new SCRTDatabase(),
 );
 
