@@ -1,7 +1,21 @@
 <?php
+require_once "sdatabase/main.php";
+
 $scrt_config = array(
 	"version" => "1.0.0",
-	"scrt_directory" => $_SERVER['DOCUMENT_ROOT']."/scrt-system_v3_host",
-	"password" => "password",
+	"scrt_directory" => $_SERVER['DOCUMENT_ROOT']."/scrt_host",
+	"password" => "142000",
+	"db" => new SCRTDatabase(),
 );
+
+$sdb = $scrt_config['db'];
+$rowNum = mysqli_num_rows($sdb->sendSQLRequest("SHOW TABLES LIKE 'SCRTSessions'"));
+if($rowNum <= 0){
+	$sdb->createTable(
+		"SCRTSessions", 
+		array("id", "aesKey"), 
+		array("TEXT", "TEXT")
+	);
+}
+
 ?>

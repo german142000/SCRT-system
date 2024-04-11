@@ -6,59 +6,47 @@ use mervick\aesEverywhere\AES256;
 
 function unpackData($data){
 	include("config.php");
+	$sdb = $scrt_config["db"];
 	$data = json_decode($data, true);
 	$session = $data["session"];
-	$sessionDirectory = $scrt_config["scrt_directory"]."/sessions";
-	$sessionPath = $sessionDirectory."/".$session.".ss";
-	if(file_exists($sessionPath)){
-		$aesKey = file_get_contents($sessionPath);
-		$dec = AES256::decrypt($data["data"], $aesKey);
-		return array("session" => $session, "data" => $dec);
-	} else {
-		return false;
-	}	
+	$result = $sdb->sendSQLRequest("SELECT * FROM SCRTSessions WHERE id = '$session'");
+	if(mysqli_num_rows($result) == 0) return "session_not_found";
+	$aesKey = mysqli_fetch_assoc($result)['aesKey'];
+	$dec = AES256::decrypt($data["data"], $aesKey);
+	return array("session" => $session, "data" => $dec);
 }
 
 function packData($data, $session){
 	include("config.php");
-	$sessionDirectory = $scrt_config["scrt_directory"]."/sessions";
-	$sessionPath = $sessionDirectory."/".$session.".ss";
-	if(file_exists($sessionPath)){
-		$aesKey = file_get_contents($sessionPath);
-		$enc = AES256::encrypt($data, $aesKey);
-		return json_encode(array("session" => $session, "data" => $enc));
-	} else {
-		return false;
-	}	
+	$sdb = $scrt_config["db"];
+	$result = $sdb->sendSQLRequest("SELECT * FROM SCRTSessions WHERE id = '$session'");
+	if(mysqli_num_rows($result) == 0) return "session_not_found";
+	$aesKey = mysqli_fetch_assoc($result)['aesKey'];
+	$enc = AES256::encrypt($data, $aesKey);
+	return json_encode(array("session" => $session, "data" => $enc));
 }
 
 function unpackData_CPP($data){
 	include("config.php");
+	$sdb = $scrt_config["db"];
 	$data = json_decode($data, true);
 	//print_r($data);
 	$session = $data["session"];
-	$sessionDirectory = $scrt_config["scrt_directory"]."/sessions";
-	$sessionPath = $sessionDirectory."/".$session.".ss";
-	if(file_exists($sessionPath)){
-		$aesKey = file_get_contents($sessionPath);
-		$dec = AES128_decrypt($data["data"], $aesKey);
-		return array("session" => $session, "data" => $dec);
-	} else {
-		return false;
-	}	
+	$result = $sdb->sendSQLRequest("SELECT * FROM SCRTSessions WHERE id = '$session'");
+	if(mysqli_num_rows($result) == 0) return "session_not_found";
+	$aesKey = mysqli_fetch_assoc($result)['aesKey'];
+	$dec = AES128_decrypt($data["data"], $aesKey);
+	return array("session" => $session, "data" => $dec);
 }
 
 function packData_CPP($data, $session){
 	include("config.php");
-	$sessionDirectory = $scrt_config["scrt_directory"]."/sessions";
-	$sessionPath = $sessionDirectory."/".$session.".ss";
-	if(file_exists($sessionPath)){
-		$aesKey = file_get_contents($sessionPath);
-		$enc = AES128_encrypt($data, $aesKey);
-		return json_encode(array("session" => $session, "data" => $enc));
-	} else {
-		return false;
-	}	
+	$sdb = $scrt_config["db"];
+	$result = $sdb->sendSQLRequest("SELECT * FROM SCRTSessions WHERE id = '$session'");
+	if(mysqli_num_rows($result) == 0) return "session_not_found";
+	$aesKey = mysqli_fetch_assoc($result)['aesKey'];
+	$enc = AES128_encrypt($data, $aesKey);
+	return json_encode(array("session" => $session, "data" => $enc));	
 }
 
 function getData(){
