@@ -1,5 +1,4 @@
 <?php
-//getCertificate.php?id={certId}&keeper=127.0.0.1
 include("config.php");
 if(isset($_GET['id']) && isset($_GET['keeper'])){
 	if(!filter_var($_GET['keeper'], FILTER_VALIDATE_IP)){

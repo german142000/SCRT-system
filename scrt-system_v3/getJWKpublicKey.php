@@ -1,5 +1,4 @@
 <?php
-//getCertificate.php?id={certId}&keeper=127.0.0.1
 include("config.php");
 
 function base64url_encode($data) {

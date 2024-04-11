@@ -1,0 +1,9 @@
+{
+    "keyId": "c527a17ab31eede99c5154d167dac8ef47a46b77a51bb84d28ea1db7644c50fd",
+    "created": 1712874865,
+    "expire": 1715466865,
+    "product": "test",
+    "keyBits": 1024,
+    "keeper": "0.0.0.0",
+    "trust": "yes"
+}

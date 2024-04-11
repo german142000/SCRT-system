@@ -1,5 +1,4 @@
 <?php
-//createCertificate.php?product=product&month=1&keeper=127.0.0.1&pass=password
 include("config.php");
 if(isset($_GET['product']) && isset($_GET['month']) && isset($_GET['keeper']) && isset($_GET['pass'])){
 	if($_GET['pass'] != $scrt_config["password"]){
@@ -33,6 +32,18 @@ if(isset($_GET['product']) && isset($_GET['month']) && isset($_GET['keeper']) &&
 	file_put_contents($scrt_config["scrt_directory"]."/certificates/".$keyId."/public_key.pem", $publicKey['key']);
 	file_put_contents($scrt_config["scrt_directory"]."/certificates/".$keyId."/param.json", json_encode($keyParam, JSON_PRETTY_PRINT));
 	openssl_free_key($privateKey);
+	if(isset($_GET['sql']) && $_GET['sql'] == true){
+		$privateKeyString = file_get_contents($scrt_config["scrt_directory"]."/certificates/".$keyId."/private_key.pem");
+		$productString = $_GET['product'];
+		$keyBits = $scrt_config["keyBits"];
+		$keeper = $_GET['keeper'];
+		$sqlFile = "DROP TABLE IF EXISTS SCRTprivateCertificate;";
+		$sqlFile .= "CREATE TABLE SCRTprivateCertificate (cert TEXT, keyId TEXT, created TEXT, expire TEXT, 
+														product TEXT, keyBits INT, keeper TEXT, trust TEXT);";
+		$sqlFile .= "INSERT INTO SCRTprivateCertificate (cert, keyId, created, expire, product, keyBits, keeper, trust)
+					 VALUES ('$privateKeyString', '$keyId', '$ctime', '$exTime', '$productString', $keyBits, '$keeper', 'yes');";
+		file_put_contents($scrt_config["scrt_directory"]."/certificates/".$keyId."/private_key.sql", $sqlFile);
+	}
 	echo $keyId;
 	exit(0);
 } else {
