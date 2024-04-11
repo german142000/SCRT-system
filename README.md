@@ -191,8 +191,8 @@ console.log(sendData("http://127.0.0.1/test.php", "data")); //Отправка �
 require_once $_SERVER['DOCUMENT_ROOT']."/scrt-system_v4_php_client/client.php";
 
 $srvcnf = new SCRT_config();
-$srvcnf->scrt_cert_address = "https://127.0.0.1/scrt-system_v4";
-$srvcnf->scrt_host_address = "https://127.0.0.1/scrt-system_v4_host";
+$srvcnf->scrt_cert_address = "http://127.0.0.1/scrt-system_v4";
+$srvcnf->scrt_host_address = "http://127.0.0.1/scrt-system_v4_host";
 $srvcnf->keeper = "127.0.0.1";
 
 $ss = new SCRT_session($srvcnf);
