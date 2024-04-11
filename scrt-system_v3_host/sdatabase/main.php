@@ -8,9 +8,9 @@ class SCRTDatabase {
 	public function __construct(){
 	
 		$database_config = array(
-			"host" => "193.222.62.126",
-			"user" => "services",
-			"pass" => "142000",
+			"host" => "127.0.0.1",
+			"user" => "user",
+			"pass" => "pass",
 			"db_name" => "scrtHost_database",
 		);
 	
